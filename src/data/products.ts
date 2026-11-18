@@ -80,13 +80,13 @@ export const GENDER_LABEL: Record<Gender, string> = {
 }
 
 const ed = (slug: string, w: number, h: number) => ({
-  src: `/assets/perfumes/editorial/${slug}-480.webp`,
-  srcLarge: `/assets/perfumes/editorial/${slug}-960.webp`,
+  src: `${import.meta.env.BASE_URL}assets/perfumes/editorial/${slug}-480.webp`,
+  srcLarge: `${import.meta.env.BASE_URL}assets/perfumes/editorial/${slug}-960.webp`,
   ratio: w / h,
 })
 const cut = (slug: string, w: number, h: number) => ({
-  src: `/assets/perfumes/hero/${slug}-420.webp`,
-  srcLarge: `/assets/perfumes/hero/${slug}-840.webp`,
+  src: `${import.meta.env.BASE_URL}assets/perfumes/hero/${slug}-420.webp`,
+  srcLarge: `${import.meta.env.BASE_URL}assets/perfumes/hero/${slug}-840.webp`,
   ratio: w / h,
 })
 
