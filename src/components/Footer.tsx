@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import type { CSSProperties } from 'react'
 import { ArrowRight, ArrowUp } from 'lucide-react'
 import { Magnetic } from './Editorial'
 import { prefersReducedMotion } from '../lib/utils'
@@ -51,7 +52,7 @@ export function Footer() {
 
       {/* wordmark aprovado em escala expressiva, preenchido em champanhe pela própria silhueta */}
       <div className="wrap footer-mark-wrap" aria-hidden="true">
-        <span className="footer-mark" />
+        <span className="footer-mark" style={{ '--footer-wordmark-image': `url("${import.meta.env.BASE_URL}assets/branding/nimbo-wordmark.png")` } as CSSProperties} />
       </div>
 
       <div className="wrap footer-legal">
