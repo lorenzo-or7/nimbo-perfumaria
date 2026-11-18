@@ -18,7 +18,7 @@ const collectionHref = (q: { gender?: string; family?: string }) =>
   `/perfumes?${new URLSearchParams(Object.entries(q).filter(([, v]) => v) as [string, string][]).toString()}`
 const countFor = (q: { gender?: string; family?: string }) =>
   products.filter((p) => (!q.gender || p.gender === q.gender) && (!q.family || p.families.includes(q.family as never))).length
-const ed = (slug: string, size: 480 | 960 = 960) => `/assets/perfumes/editorial/${slug}-${size}.webp`
+const ed = (slug: string, size: 480 | 960 = 960) => `${import.meta.env.BASE_URL}assets/perfumes/editorial/${slug}-${size}.webp`
 
 export default function Home() {
   return (
