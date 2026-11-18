@@ -2,7 +2,7 @@
 export function Wordmark({ className = '', label = true }: { className?: string; label?: boolean }) {
   return (
     <img
-      src="/assets/branding/nimbo-wordmark.png"
+      src={`${import.meta.env.BASE_URL}assets/branding/nimbo-wordmark.png`}
       width={900}
       height={155}
       alt={label ? 'NIMBO' : ''}
