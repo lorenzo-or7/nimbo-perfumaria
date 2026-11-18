@@ -9,14 +9,14 @@ export interface Collection {
 }
 
 export const collections: Collection[] = [
-  { id: 'masculino', title: 'Masculino', line: 'Madeiras, especiarias, presença.', image: '/assets/perfumes/editorial/sauvage-parfum-960.webp', query: { gender: 'masculino' } },
-  { id: 'feminino', title: 'Feminino', line: 'Flores brancas e baunilha.', image: '/assets/perfumes/editorial/divine-960.webp', query: { gender: 'feminino' } },
-  { id: 'unissex', title: 'Unissex', line: 'Para qualquer pele.', image: '/assets/perfumes/editorial/vibrato-960.webp', query: { gender: 'unissex' } },
-  { id: 'frescos', title: 'Frescos', line: 'Água, folhas, ar.', image: '/assets/perfumes/editorial/kaiak-960.webp', query: { family: 'fresco' } },
-  { id: 'florais', title: 'Florais', line: 'Pétalas em várias luzes.', image: '/assets/perfumes/editorial/bright-crystal-960.webp', query: { family: 'floral' } },
-  { id: 'amadeirados', title: 'Amadeirados', line: 'Cedro, vetiver, oud.', image: '/assets/perfumes/editorial/original-vetiver-960.webp', query: { family: 'amadeirado' } },
-  { id: 'ambarados', title: 'Ambarados', line: 'Calor que fica na pele.', image: '/assets/perfumes/editorial/red-tobacco-960.webp', query: { family: 'ambarado' } },
-  { id: 'gourmand', title: 'Gourmand', line: 'Café, cacau, mel.', image: '/assets/perfumes/editorial/black-opium-960.webp', query: { family: 'gourmand' } },
+  { id: 'masculino', title: 'Masculino', line: 'Madeiras, especiarias, presença.', image: `${import.meta.env.BASE_URL}assets/perfumes/editorial/sauvage-parfum-960.webp`, query: { gender: 'masculino' } },
+  { id: 'feminino', title: 'Feminino', line: 'Flores brancas e baunilha.', image: `${import.meta.env.BASE_URL}assets/perfumes/editorial/divine-960.webp`, query: { gender: 'feminino' } },
+  { id: 'unissex', title: 'Unissex', line: 'Para qualquer pele.', image: `${import.meta.env.BASE_URL}assets/perfumes/editorial/vibrato-960.webp`, query: { gender: 'unissex' } },
+  { id: 'frescos', title: 'Frescos', line: 'Água, folhas, ar.', image: `${import.meta.env.BASE_URL}assets/perfumes/editorial/kaiak-960.webp`, query: { family: 'fresco' } },
+  { id: 'florais', title: 'Florais', line: 'Pétalas em várias luzes.', image: `${import.meta.env.BASE_URL}assets/perfumes/editorial/bright-crystal-960.webp`, query: { family: 'floral' } },
+  { id: 'amadeirados', title: 'Amadeirados', line: 'Cedro, vetiver, oud.', image: `${import.meta.env.BASE_URL}assets/perfumes/editorial/original-vetiver-960.webp`, query: { family: 'amadeirado' } },
+  { id: 'ambarados', title: 'Ambarados', line: 'Calor que fica na pele.', image: `${import.meta.env.BASE_URL}assets/perfumes/editorial/red-tobacco-960.webp`, query: { family: 'ambarado' } },
+  { id: 'gourmand', title: 'Gourmand', line: 'Café, cacau, mel.', image: `${import.meta.env.BASE_URL}assets/perfumes/editorial/black-opium-960.webp`, query: { family: 'gourmand' } },
 ]
 
 export const faq = [
@@ -66,7 +66,7 @@ export interface FinderStep {
   options: FinderOption[]
 }
 
-const img = (slug: string) => `/assets/perfumes/editorial/${slug}-480.webp`
+const img = (slug: string) => `${import.meta.env.BASE_URL}assets/perfumes/editorial/${slug}-480.webp`
 
 export const finderSteps: FinderStep[] = [
   {
