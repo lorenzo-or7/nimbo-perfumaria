@@ -73,7 +73,7 @@ export function Footer() {
             rel="noopener noreferrer"
             aria-label="Or7, idealizado e desenvolvido por Lorenzo Orsetti. Abrir portfólio em nova aba"
           >
-            <img src="/assets/branding/or7-signature.webp" width={640} height={213} alt="" loading="lazy" />
+            <img src={`${import.meta.env.BASE_URL}assets/branding/or7-signature.webp`} width={640} height={213} alt="" loading="lazy" />
           </a>
         </div>
       </div>
