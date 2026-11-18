@@ -1,0 +1,149 @@
+/* ——— Image reveal ——— */
+.ir {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-sunken);
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.3s var(--ease-inout);
+}
+.ir-left {
+  clip-path: inset(0 100% 0 0);
+}
+.ir-right {
+  clip-path: inset(0 0 0 100%);
+}
+.ir.is-in {
+  clip-path: inset(0 0 0 0);
+}
+.ir > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scale: 1.18;
+  transition: scale 1.8s var(--ease-out);
+}
+.ir.is-in > img {
+  scale: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ir {
+    clip-path: none;
+  }
+  .ir > img {
+    scale: 1;
+  }
+}
+
+/* ——— Scent pyramid ——— */
+.sp {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 1.2fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.sp-figure {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+}
+.sp-layer {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  display: grid;
+  place-items: center;
+}
+.sp-shape {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--sp-tint) 55%, var(--bg));
+  border: 0;
+  transition: background-color 0.4s, scale 0.5s var(--ease-out);
+}
+.sp-layer-0 .sp-shape {
+  clip-path: polygon(34% 0, 66% 0, 78% 100%, 22% 100%);
+}
+.sp-layer-1 .sp-shape {
+  clip-path: polygon(21% 0, 79% 0, 90% 100%, 10% 100%);
+}
+.sp-layer-2 .sp-shape {
+  clip-path: polygon(9% 0, 91% 0, 100% 100%, 0 100%);
+}
+.sp-layer[aria-selected='true'] .sp-shape {
+  background: var(--ink);
+}
+.sp-layer:hover .sp-shape {
+  scale: 1.02;
+}
+.sp-label {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  transition: color 0.3s;
+}
+.sp-num {
+  font-family: var(--font-ui);
+  font-size: var(--t-xs);
+  opacity: 0.6;
+}
+.sp-layer[aria-selected='true'] .sp-label {
+  color: var(--bg);
+}
+.sp-panel {
+  animation: page-in 0.5s var(--ease-out);
+}
+.sp-when {
+  color: var(--ink-2);
+  margin-bottom: 18px;
+}
+.sp-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.sp-notes li {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1.1rem + 1.3vw, 2.4rem);
+  line-height: 1.1;
+  animation: note-in 0.6s var(--ease-out) both;
+}
+.sp-notes li:not(:last-child)::after {
+  content: ',';
+  color: var(--ink-3);
+}
+@keyframes note-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.sp-track {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.sp-track span {
+  height: 2px;
+  background: var(--line);
+  transition: background-color 0.5s;
+}
+.sp-track span.is-on {
+  background: var(--accent);
+}
+@media (max-width: 700px) {
+  .sp {
+    grid-template-columns: 1fr;
+  }
+  .sp-layer {
+    height: 60px;
+  }
+}
+
+.magnetic {
+  display: inline-flex;
+  will-change: transform;
+}

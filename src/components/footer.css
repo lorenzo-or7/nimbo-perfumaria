@@ -1,0 +1,172 @@
+/* Encerramento editorial: fundo negro (que acolhe a assinatura Or7 original), luz champanhe e o wordmark em escala. */
+.footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #000;
+  color: #f9f6ef;
+  --ink: #f9f6ef;
+  --ink-2: #d9d4ca;
+  --ink-3: #a59e94;
+  --line: rgba(249, 246, 239, 0.14);
+  --accent: var(--champagne);
+  padding-top: clamp(72px, 9vw, 128px);
+  padding-bottom: 24px;
+}
+.footer-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(50% 45% at 50% 100%, rgba(215, 184, 137, 0.2), transparent 75%),
+    radial-gradient(30% 40% at 0% 0%, rgba(58, 58, 58, 0.55), transparent 80%);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: clamp(40px, 6vw, 96px);
+}
+.footer-lead {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 32px;
+}
+.footer-line {
+  font-size: clamp(2.2rem, 1.2rem + 2.4vw, 3.8rem);
+  line-height: 1;
+  max-width: 13ch;
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  padding-top: 10px;
+}
+.footer-h {
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  color: var(--champagne);
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.footer-col ul {
+  display: grid;
+}
+.footer-col a {
+  position: relative;
+  font-size: var(--t-sm);
+  display: inline-block;
+  padding: 7px 0;
+  color: var(--ink-2);
+  transition: color 0.3s, translate 0.5s var(--ease-out);
+}
+.footer-col a:hover {
+  color: var(--ink);
+  translate: 4px 0;
+}
+.footer-note {
+  font-size: var(--t-sm);
+  color: var(--ink-2);
+  max-width: 30ch;
+  padding-top: 7px;
+}
+
+.footer-mark-wrap {
+  margin-top: clamp(56px, 7vw, 100px);
+}
+.footer-mark {
+  display: block;
+  width: 100%;
+  aspect-ratio: 900 / 155;
+  background: linear-gradient(100deg, #8c7656 0%, #d7b889 30%, #f9f6ef 46%, #d7b889 58%, #b8a89a 100%);
+  background-size: 220% 100%;
+  background-position: 100% 0;
+  -webkit-mask: url('/assets/branding/nimbo-wordmark.png') center / contain no-repeat;
+  mask: url('/assets/branding/nimbo-wordmark.png') center / contain no-repeat;
+  transition: background-position 3s var(--ease-out);
+}
+.footer:hover .footer-mark {
+  background-position: 0 0;
+}
+
+.footer-legal {
+  margin-top: clamp(28px, 4vw, 48px);
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+.footer-legal p {
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+  max-width: 76ch;
+}
+.footer-end {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+.footer-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  transition: color 0.3s;
+}
+.footer-top-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1.4;
+  transition: translate 0.5s var(--ease-out);
+}
+.footer-top-btn:hover {
+  color: var(--ink);
+}
+.footer-top-btn:hover svg {
+  translate: 0 -3px;
+}
+/* assinatura Or7: asset original, proporção e cores preservadas sobre o mesmo preto */
+.footer-or7 {
+  display: block;
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+.footer-or7:hover {
+  opacity: 1;
+}
+.footer-or7 img {
+  width: 156px;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .footer-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-cols > :last-child {
+    grid-column: 1 / -1;
+  }
+  .footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-end {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
